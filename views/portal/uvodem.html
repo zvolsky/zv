@@ -1,3 +1,5 @@
+{{left_sidebar_enabled = False}}
+{{right_sidebar_enabled = True}}
 {{extend 'layout.html'}}
 
 {{block header}}
@@ -6,83 +8,93 @@
     </header>
 {{end}}
 
-Připravujeme pro vás nový portál
-{{=UL('tipy na výlety po Čechách a po Evropě',
-  'informace na cesty veřejnou dopravou',
-  'deník vlastních výletů',
-  )}}
+{{block left_sidebar}}
+{{end}}
+{{block right_sidebar}}
+    <a href="/krepo" class="w3-btn w3-teal">K-Report mobilní čtečka</a>
+{{end}}
 
 <div class="well">
 <h3><mark>Počasí</mark></h3>
 
-    <div class="btn-group btn-group-sm">
-        <a href="http://mapy.in-pocasi.cz/" class="btn btn-success">Radar ČR 1</a>
-        <a href="http://radar.bourky.cz/" class="btn btn-success">Radar ČR 2</a>
-        <a href="http://m.radareu.cz/" class="btn btn-success">Evropa</a>
+    <div class="w3-btn-group">
+        <a href="http://mapy.in-pocasi.cz/" class="w3-btn w3-teal">Radar ČR 1</a>
+        <a href="http://radar.bourky.cz/" class="w3-btn w3-teal">Radar ČR 2</a>
+        <a href="http://m.radareu.cz/" class="w3-btn w3-teal">Evropa</a>
     </div>
 
-    <div class="btn-group btn-group-sm">
-        <a href="http://www.meteoalarm.eu/" class="btn btn-danger">Výstrahy EU</a>
-        <a href="http://portal.chmi.cz/files/portal/docs/meteo/om/zpravy/" class="btn btn-danger">ČR</a>
-        <a href="http://m.yr.no" class="btn btn-info">Norové</a>
-        <a href="http://www.weather24.com" class="btn btn-info">Švýcaři</a>
-        <a href="http://portal.chmi.cz/files/portal/docs/meteo/ov/aladin/results/ala.html#prec?" class="btn btn-info">Aladin (deště)</a>
+    <div class="w3-btn-group">
+        <a href="http://www.meteoalarm.eu/" class="w3-btn w3-red">Výstrahy EU</a>
+        <a href="http://portal.chmi.cz/files/portal/docs/meteo/om/zpravy/" class="w3-btn w3-red">ČR</a>
+        <a href="http://m.yr.no" class="w3-btn w3-green">Norové</a>
+        <a href="http://www.weather24.com" class="w3-btn w3-green">Švýcaři</a>
+        <a href="http://portal.chmi.cz/files/portal/docs/meteo/ov/aladin/results/ala.html#prec?" class="w3-btn w3-green">Aladin (deště)</a>
     </div>
 
 <h3><mark>Mapy</mark></h3>
 
-    <div class="btn-group btn-group-sm">
-        <a href="http://www.openstreetmap.org/#map=9/50.0942/14.2740" class="btn btn-info">Osm</a>
-        <a href="https://mapy.cz/turisticka?x=14.4206948&y=50.0326060&z=10&l=0" class="btn btn-info">Seznam</a>
+    <div class="w3-btn-group">
+        <a href="http://www.openstreetmap.org/#map=9/50.0942/14.2740" class="w3-btn w3-teal">Osm</a>
+        <a href="https://mapy.cz/turisticka?x=14.4206948&y=50.0326060&z=10&l=0" class="w3-btn w3-teal">Seznam</a>
     </div>
 
 <h3><mark>Doprava</mark></h3>
 
     <div>
-        <div class="btn-group btn-group-sm">
-            <a href="http://www.idos.cz/" class="btn btn-success">Jízdní řády</a>
-            <a href="http://www.jizdni-rady.nanadrazi.cz/index.php?page=odkazy-na-vlakove-jizdni-rady" class="btn btn-success">JŘ2</a>
+        <div class="w3-btn-group">
+            <a href="http://www.idos.cz/" class="w3-btn w3-teal">Jízdní řády</a>
+            <a href="http://www.jizdni-rady.nanadrazi.cz/index.php?page=odkazy-na-vlakove-jizdni-rady" class="w3-btn w3-teal">JŘ2</a>
         </div>
 
-        <div class="btn-group btn-group-sm">
-            <a href="http://jizdenka.idos.cz/NT.aspx" class="btn btn-danger">Cena</a>
-            <a href="http://www.cd.cz/mezinarodni-cestovani/jizdenka/sleva.php" class="btn btn-danger">EU slevy</a>
-            <a href="http://vlakem.net/" class="btn btn-danger">EU jak?</a>
-            <a href="http://www.europetrainsguide.com/" class="btn btn-danger">EU Guide</a>
+        <div class="w3-btn-group">
+            <a href="http://jizdenka.idos.cz/NT.aspx" class="w3-btn w3-teal">Cena</a>
+            <a href="http://www.cd.cz/mezinarodni-cestovani/jizdenka/sleva.php" class="w3-btn w3-teal">EU slevy</a>
+            <a href="http://vlakem.net/" class="w3-btn w3-teal">EU jak?</a>
+            <a href="http://www.europetrainsguide.com/" class="w3-btn w3-teal">EU Guide</a>
         </div>
     </div>
 
     <div>
-        <div class="btn-group btn-group-sm">
-            <a href="http://www.cd.cz/" class="btn btn-info">ČD</a>
-            <a href="http://www.cd.cz/mapa/" class="btn btn-warning">!</a>
-            <a href="http://www.regiojet.cz/" class="btn btn-info">Regiojet</a>
-            <a href="https://www.regiojet.cz/nase-trasy/mapa/" class="btn btn-success">iM</a>
-            <a href="https://jizdenky.regiojet.cz/OnTheRoad?0" class="btn btn-warning">!</a>
-            <a href="http://www.le.cz/cms/trasy-80.htm/" class="btn btn-info">LEO</a>
+        <div class="w3-btn-group w3-show-inline-block">
+            <a href="http://www.cd.cz/" class="w3-btn w3-yellow">ČD</a>
+            <a href="http://www.cd.cz/mapa/" class="w3-btn w3-red">!</a>
         </div>
-
-        <div class="btn-group btn-group-sm">
-            <a href="https://www.flixbus.cz/" class="btn btn-info">Flixbus</a>
-            <a href="https://www.flixbus.de/busverbindung#/map" class="btn btn-success">iM</a>
-            <a href="https://www.helloe.com/cz/" class="btn btn-info">Helloe</a>
-            <a href="https://www.helloe.com/cms/sites/default/files/Helloe-Streckennetz-1200_de.jpg" class="btn btn-success">M</a>
+        <div class="w3-btn-group w3-show-inline-block">
+            <a href="http://www.regiojet.cz/" class="w3-btn w3-yellow">Regiojet</a>
+            <a href="https://www.regiojet.cz/nase-trasy/mapa/" class="w3-btn w3-teal">iM</a>
+            <a href="https://jizdenky.regiojet.cz/OnTheRoad?0" class="w3-btn w3-red">!</a>
         </div>
+        <div class="w3-btn-group w3-show-inline-block">
+            <a href="http://www.le.cz/cms/trasy-80.htm/" class="w3-btn w3-yellow">LEO</a>
+        </div>
+    </div>
 
-        <div class="btn-group btn-group-sm">
-            <a href="https://ropid.cz/" class="btn btn-info">Praha</a>
-            <a href="http://mapy.idos.cz/" class="btn btn-success">iM</a>
-            <a href="http://ropid.cz/wp-content/uploads/mapy/schemata-trvala/a3_primestske_linky.pdf" class="btn btn-success">M</a>
-            <a href="http://ropid.cz/mimoradnosti/" class="btn btn-warning">!p+</a>
-            <a href="http://www.dpp.cz/mimoradne-udalosti/" class="btn btn-warning">!p</a>
-            <a href="http://www.idsjmk.cz/" class="btn btn-info">Brno</a>
-            <a href="http://www.idsjmk.cz/mapa/Plan-site-celek.gif" class="btn btn-success">M</a>
+    <div>
+        <div class="w3-btn-group w3-show-inline-block">
+            <a href="https://www.flixbus.cz/" class="w3-btn w3-yellow">Flixbus</a>
+            <a href="https://www.flixbus.de/busverbindung#/map" class="w3-btn w3-teal">iM</a>
+        </div>
+        <div class="w3-btn-group w3-show-inline-block">
+            <a href="https://www.helloe.com/cz/" class="w3-btn w3-yellow">Helloe</a>
+            <a href="https://www.helloe.com/cms/sites/default/files/Helloe-Streckennetz-1200_de.jpg" class="w3-btn w3-teal">M</a>
+        </div>
+    </div>
+
+    <div>
+        <div class="w3-btn-group">
+            <a href="https://ropid.cz/" class="w3-btn w3-teal">Praha</a>
+            <a href="http://mapy.idos.cz/" class="w3-btn w3-teal">iM</a>
+            <a href="http://ropid.cz/wp-content/uploads/mapy/schemata-trvala/a3_primestske_linky.pdf" class="w3-btn w3-teal">M</a>
+            <a href="http://ropid.cz/mimoradnosti/" class="w3-btn w3-red">!p+</a>
+            <a href="http://www.dpp.cz/mimoradne-udalosti/" class="w3-btn w3-red">!p</a>
+            <a href="http://www.idsjmk.cz/" class="w3-btn w3-teal">Brno</a>
+            <a href="http://www.idsjmk.cz/mapa/Plan-site-celek.gif" class="w3-btn w3-teal">M</a>
         </div>
     </div>
 </div>
 
 
-<h4><mark>Náš tip 2016 - je léto, hurá k moři - trochu dobrodružně</mark></h4>
+<h4><mark>Blíží se léto 2017 - dobrodružně k moři?</mark></h4>
 
 <div>
     <a href="https://www.helloe.com/cz/specialoffers" class="btn btn-sm btn-info"><strong>Hello Evropa</strong> <span class="badge">2 x 400,-</span></a>
