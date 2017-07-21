@@ -1,110 +1,62 @@
-<a href="/krepo" class="w3-btn w3-teal">K-Report mobilní čtečka</a>
+{{extend 'layout.html'}}
 
-<div class="well">
-<h3><mark>Počasí</mark></h3>
-
-    <div class="w3-btn-group">
-        <a href="http://mapy.in-pocasi.cz/" class="w3-btn w3-teal">Radar ČR 1</a>
-        <a href="http://radar.bourky.cz/" class="w3-btn w3-teal">Radar ČR 2</a>
-        <a href="http://m.radareu.cz/" class="w3-btn w3-teal">Evropa</a>
-    </div>
-
-    <div class="w3-btn-group">
-        <a href="http://www.meteoalarm.eu/" class="w3-btn w3-red">Výstrahy EU</a>
-        <a href="http://portal.chmi.cz/files/portal/docs/meteo/om/zpravy/" class="w3-btn w3-red">ČR</a>
-        <a href="http://m.yr.no" class="w3-btn w3-green">Norové</a>
-        <a href="http://www.weather24.com" class="w3-btn w3-green">Švýcaři</a>
-        <a href="http://portal.chmi.cz/files/portal/docs/meteo/ov/aladin/results/ala.html#prec?" class="w3-btn w3-green">Aladin (deště)</a>
-    </div>
-
-<h3><mark>Mapy</mark></h3>
-
-    <div class="w3-btn-group">
-        <a href="http://www.openstreetmap.org/#map=9/50.0942/14.2740" class="w3-btn w3-teal">Osm</a>
-        <a href="https://mapy.cz/turisticka?x=14.4206948&y=50.0326060&z=10&l=0" class="w3-btn w3-teal">Seznam</a>
-    </div>
-
-<h3><mark>Doprava</mark></h3>
-
-    <div>
-        <div class="w3-btn-group">
-            <a href="http://www.idos.cz/" class="w3-btn w3-teal">Jízdní řády</a>
-            <a href="http://www.jizdni-rady.nanadrazi.cz/index.php?page=odkazy-na-vlakove-jizdni-rady" class="w3-btn w3-teal">JŘ2</a>
-        </div>
-
-        <div class="w3-btn-group">
-            <a href="http://jizdenka.idos.cz/NT.aspx" class="w3-btn w3-teal">Cena</a>
-            <a href="http://www.cd.cz/mezinarodni-cestovani/jizdenka/sleva.php" class="w3-btn w3-teal">EU slevy</a>
-            <a href="http://vlakem.net/" class="w3-btn w3-teal">EU jak?</a>
-            <a href="http://www.europetrainsguide.com/" class="w3-btn w3-teal">EU Guide</a>
-        </div>
-    </div>
-
-    <div>
-        <div class="w3-btn-group w3-show-inline-block">
-            <a href="http://www.cd.cz/" class="w3-btn w3-yellow">ČD</a>
-            <a href="http://www.cd.cz/mapa/" class="w3-btn w3-red">!</a>
-        </div>
-        <div class="w3-btn-group w3-show-inline-block">
-            <a href="http://www.regiojet.cz/" class="w3-btn w3-yellow">Regiojet</a>
-            <a href="https://www.regiojet.cz/nase-trasy/mapa/" class="w3-btn w3-teal">iM</a>
-            <a href="https://jizdenky.regiojet.cz/OnTheRoad?0" class="w3-btn w3-red">!</a>
-        </div>
-        <div class="w3-btn-group w3-show-inline-block">
-            <a href="http://www.le.cz/cms/trasy-80.htm/" class="w3-btn w3-yellow">LEO</a>
-        </div>
-    </div>
-
-    <div>
-        <div class="w3-btn-group w3-show-inline-block">
-            <a href="https://www.flixbus.cz/" class="w3-btn w3-yellow">Flixbus</a>
-            <a href="https://www.flixbus.de/busverbindung#/map" class="w3-btn w3-teal">iM</a>
-        </div>
-        <div class="w3-btn-group w3-show-inline-block">
-            <a href="https://www.helloe.com/cz/" class="w3-btn w3-yellow">Helloe</a>
-            <a href="https://www.helloe.com/cms/sites/default/files/Helloe-Streckennetz-1200_de.jpg" class="w3-btn w3-teal">M</a>
-        </div>
-    </div>
-
-    <div>
-        <div class="w3-btn-group">
-            <a href="https://ropid.cz/" class="w3-btn w3-teal">Praha</a>
-            <a href="http://mapy.idos.cz/" class="w3-btn w3-teal">iM</a>
-            <a href="http://ropid.cz/wp-content/uploads/mapy/schemata-trvala/a3_primestske_linky.pdf" class="w3-btn w3-teal">M</a>
-            <a href="http://ropid.cz/mimoradnosti/" class="w3-btn w3-red">!p+</a>
-            <a href="http://www.dpp.cz/mimoradne-udalosti/" class="w3-btn w3-red">!p</a>
-            <a href="http://www.idsjmk.cz/" class="w3-btn w3-teal">Brno</a>
-            <a href="http://www.idsjmk.cz/mapa/Plan-site-celek.gif" class="w3-btn w3-teal">M</a>
-        </div>
+<button data-toggle="collapse" data-target="#aplikace">Aplikace</button>
+<div id="aplikace" class="collapse row">
+    <div class="col-sm-12 btn-group">
+        <a href="/krepo" class="btn btn-primary">K-Report mobilní čtečka</a>
     </div>
 </div>
 
-<h4><mark>Minová pole :(</mark></h4>
-<div class="w3-btn-group">
-    <a href="https://misportal.hcr.hr/HCRweb/faces/simple/Map.jspx" class="w3-btn w3-teal">Chorvatsko <small>([x]Accept, Public Access)</small> <b>Šibenik, Zadar,..</b></a>
-    <a href="http://www.bhmac.org/mapa.jpg" class="w3-btn w3-teal">Bosna-1</a>
-    <a href="http://www.euforbih.org/eufor/index.php/bih-minefield-maps" class="w3-btn w3-teal">Bosna-2</a>
-bez záruky - zatím bylo identifikováno jen 60% minových polí :(
-</div>
- 
-<h4><mark>Blíží se léto 2017 - dobrodružně k moři?</mark></h4>
+<button data-toggle="collapse" data-target="#pocasi">Počasí</button>
+<div id="pocasi" class="collapse row">
+    <div class="col-sm-4 btn-group">
+        <a href="http://mapy.in-pocasi.cz/" class="btn btn-primary">Radar ČR 1</a>
+        <a href="http://radar.bourky.cz/" class="btn btn-primary">Radar ČR 2</a>
+        <a href="http://www.radareu.cz/" class="btn btn-primary">Evropa</a>
+    </div>
 
-<div>
-    <a href="https://www.helloe.com/cz/specialoffers" class="btn btn-sm btn-info"><strong>Hello Evropa</strong> <span class="badge">2 x 400,-</span></a>
-    <a href="http://www.openstreetmap.org/#map=9/44.3788/8.9566" class="btn btn-sm btn-info"><strong>např. Praha-Janov s návštěvou Salcburku</strong> <span class="badge">z Prahy ~ 1770,-</span>:</a>
-    <a href="https://www.cd.cz/eshop/" class="btn btn-sm btn-success">Tábor - Salzburg <span class="badge">386,-</span></a>
-    <a href="http://vlakem.net/praha-salzburg/" class="btn btn-sm btn-success">Salzburg - Genova<span class="badge">490,-</span></a>
+    <div class="col-sm-4 btn-group">
+        <a href="http://www.weather24.com" class="btn btn-info">Švýcaři</a>
+        <a href="http://m.yr.no" class="btn btn-info">Norové</a>
+        <a href="http://portal.chmi.cz/files/portal/docs/meteo/ov/aladin/results/ala.html#prec?" class="btn btn-info">Aladin (deště)</a>
+    </div>
+
+    <div class="col-sm-4 btn-group">
+        <a href="http://www.meteoalarm.eu/" class="btn btn-warning">Výstrahy EU</a>
+        <a href="http://portal.chmi.cz/files/portal/docs/meteo/om/zpravy/" class="btn btn-warning">ČR</a>
+    </div>
 </div>
-<div>
-    <a href="http://www.openstreetmap.org/#map=13/44.8131/13.9235" class="btn btn-sm btn-info"><strong>Istrie</strong> <span class="badge">z Prahy ~ 2200,-</span>:</a>
-    <a href="https://www.cd.cz/eshop/" class="btn btn-sm btn-success">Tábor - Villach <span class="badge">386,-</span></a>
-    <a href="https://shop.flixbus.cz" class="btn btn-sm btn-success">Villach(jen 13:10) - Medulin <span class="badge">629,-</span></a>
+
+<button data-toggle="collapse" data-target="#mapy">Mapy</button>
+<div id="mapy" class="collapse row">
+    <div class="col-sm-12 btn-group">
+        <a href="http://www.openstreetmap.org/#map=9/50.0942/14.2740" class="btn btn-primary">Osm</a>
+        <a href="https://mapy.cz/turisticka?x=14.4206948&y=50.0326060&z=10&l=0" class="btn btn-primary">Seznam</a>
+    </div>
 </div>
-<div>
-    <a href="http://www.openstreetmap.org/#map=8/38.681/21.066" class="btn btn-sm btn-info"><strong>sev.Řecko, Korfu, Peloponés</strong> (trajekt jen některé dny) <span class="badge">z Prahy ~ 5200,- září
-    <a href="https://www.cd.cz/eshop/" class="btn btn-sm btn-success">Tábor - Villach <span class="badge">386,-</span></a>
-    <a href="https://shop.flixbus.cz" class="btn btn-sm btn-success">Villach - Koper <span class="badge">479,-</span></a>
-    <a href="http://www.openstreetmap.org/#map=12/45.6066/13.7696" class="btn btn-sm btn-success">pěšky/MHD <span class="badge">20 km</span></a>
-    <a href="http://www.minoan.gr/en/routes/italy" class="btn btn-sm btn-success">Trieste - Igumenitsa/Patras <span class="badge">1591,-</span></a>
+
+<button data-toggle="collapse" data-target="#doprava">Doprava</button>
+<div id="doprava" class="collapse row">
+    <div class="col-sm-4 btn-group">
+        <a href="http://www.idos.cz/" class="btn btn-primary">Jízdní řády</a>
+        <a href="http://www.jizdni-rady.nanadrazi.cz/index.php?page=odkazy-na-vlakove-jizdni-rady" class="btn btn-primary">JŘ2</a>
+    </div>
+
+    <div class="col-sm-4 btn-group">
+        <a href="http://jizdenka.idos.cz/NT.aspx" class="btn btn-info">Cena</a>
+        <a href="http://www.cd.cz/mezinarodni-cestovani/jizdenka/sleva.php" class="btn btn-info">EU slevy</a>
+        <a href="http://vlakem.net/" class="btn btn-info">EU jak?</a>
+        <a href="http://www.europetrainsguide.com/" class="btn btn-info">EU Guide</a>
+    </div>
+
+    <div class="col-sm-4 btn-group">
+        <a href="http://www.cd.cz/" class="btn btn-warning">ČD</a>
+        <a href="http://www.cd.cz/mapa/" class="btn btn-warning">!</a>
+    </div>
+
+    <div class="col-sm-4 btn-group">
+        <a href="http://www.regiojet.cz/" class="btn btn-default">Regiojet</a>
+        <a href="https://www.regiojet.cz/nase-trasy/mapa/" class="btn btn-default">iM</a>
+        <a href="https://jizdenky.regiojet.cz/OnTheRoad?0" class="btn btn-default">!</a>
+    </div>
 </div>
-<small>Pro dobrou cenu nakup vlak/bus alespoň 10 dnů předem.</small>
