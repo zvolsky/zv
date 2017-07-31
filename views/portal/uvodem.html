@@ -1,13 +1,21 @@
 {{extend 'layout.html'}}
 
-<button data-toggle="collapse" data-target="#aplikace">Aplikace</button>
+<button class="btn btn-default">
+    <span class="glyphicon glyphicon-cog"></span>
+</button>
+
+<button class="btn btn-default" data-toggle="collapse" data-target="#aplikace">
+    <span class="glyphicon glyphicon-random"></span> Aplikace
+</button>
 <div id="aplikace" class="collapse row">
     <div class="col-sm-12 btn-group">
         <a href="/krepo" class="btn btn-primary">K-Report mobilní čtečka</a>
     </div>
 </div>
 
-<button data-toggle="collapse" data-target="#pocasi">Počasí</button>
+<button class="btn btn-default" data-toggle="collapse" data-target="#pocasi">
+    <span class="glyphicon glyphicon-asterisk"></span> Počasí <span class="glyphicon glyphicon-cloud"></span>
+</button>
 <div id="pocasi" class="collapse row">
     <div class="col-sm-4 btn-group">
         <a href="http://mapy.in-pocasi.cz/" class="btn btn-primary">Radar ČR 1</a>
@@ -27,7 +35,9 @@
     </div>
 </div>
 
-<button data-toggle="collapse" data-target="#mapy">Mapy</button>
+<button class="btn btn-default" data-toggle="collapse" data-target="#mapy">
+    <span class="glyphicon glyphicon-map-marker"></span> Mapy
+</button>
 <div id="mapy" class="collapse row">
     <div class="col-sm-12 btn-group">
         <a href="http://www.openstreetmap.org/#map=9/50.0942/14.2740" class="btn btn-primary">Osm</a>
@@ -35,7 +45,9 @@
     </div>
 </div>
 
-<button data-toggle="collapse" data-target="#doprava">Doprava</button>
+<button class="btn btn-default" data-toggle="collapse" data-target="#doprava">
+    <span class="glyphicon glyphicon-plane"></span> Doprava
+</button>
 <div id="doprava" class="collapse row">
     <div class="col-sm-4 btn-group">
         <a href="http://www.idos.cz/" class="btn btn-primary">Jízdní řády</a>

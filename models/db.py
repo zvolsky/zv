@@ -53,8 +53,9 @@ response.form_label_separator = myconf.take('forms.separator')
 
 from gluon.tools import Auth, Service, PluginManager
 
-auth = Auth(db, cas_provider='%s/zitranavylet/default/user/cas' %
-                             ('http://localhost:8000' if request.is_local else 'https://zitranavylet.cz'))
+#auth = Auth(db, cas_provider='%s/zitranavylet/default/user/cas' %
+#                             ('http://localhost:8000' if request.is_local else 'https://zitranavylet.cz'))
+auth = Auth(db)
 service = Service()
 plugins = PluginManager()
 
@@ -68,6 +69,7 @@ mail.settings.sender = myconf.take('smtp.sender')
 mail.settings.login = myconf.take('smtp.login')
 
 ## configure auth policy
+auth.settings.create_user_groups = None
 auth.settings.registration_requires_verification = False
 auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
