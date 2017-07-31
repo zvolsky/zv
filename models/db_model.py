@@ -24,6 +24,7 @@ db.define_table('loc',
     Field('name', 'string', length=50),
     Field('w24', 'string', length=40),
     Field('yr', 'string', length=50),
+    format='%(name)s'
     )
 
 '''
@@ -39,5 +40,6 @@ db.define_table('user_loc',
     #Field('loc_als_id', db.loc_als),
     Field('name', 'string', length=30),
     Field('weather', 'boolean', default=True),
-    common_filter=lambda query: db.user_loc.auth_user_id == auth.user_id
+    common_filter=lambda query: db.user_loc.auth_user_id == auth.user_id,
+    format='user %(auth_user_id)s loc %(loc_id)s'
     )
