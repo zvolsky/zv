@@ -25,14 +25,14 @@
 
     <div class="col-sm-4 btn-group">
         {{if loc.loc.w24:}}
-            <a href="http://www.weather24.com/details/r/{{=loc.loc.w24}}.html?d=1" class="btn btn-info">w24.com</a>
-            <a href="http://www.weather24.com/16days/r/{{=loc.loc.w24}}.html" class="btn btn-info">16d</a>
+            <a href="http://www.weather24.com/details/r/{{=loc.w24}}.html?d=1" class="btn btn-info">w24.com</a>
+            <a href="http://www.weather24.com/16days/r/{{=loc.w24}}.html" class="btn btn-info">16d</a>
         {{else:}}
             <a href="http://www.weather24.com" class="btn btn-info">w24.com</a>
         {{pass}}
         {{if loc.loc.yr:}}
-            <a href="https://www.yr.no/sted/{{=loc.loc.yr}}" class="btn btn-info">yr.no</a>
-            <a href="https://www.yr.no/sted/{{=loc.loc.yr}}/langtidsvarsel.html" class="btn btn-info">9d</a>
+            <a href="https://www.yr.no/sted/{{=loc.yr}}" class="btn btn-info">yr.no</a>
+            <a href="https://www.yr.no/sted/{{=loc.yr}}/langtidsvarsel.html" class="btn btn-info">9d</a>
         {{else:}}
             <a href="https://www.yr.no" class="btn btn-info">yr.no</a>
         {{pass}}
