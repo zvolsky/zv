@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 def index():
-    redirect(URL('portal', 'uvodem'))
+    redirect(URL('portal', 'main'))
 
 
 def user():
