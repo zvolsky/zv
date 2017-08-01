@@ -2,7 +2,6 @@
 
 def main():
     loc = None
-    from pdb import set_trace; set_trace()
     if auth.user_id:
         loc = db((db.user_loc.auth_user_id == auth.user_id) & (db.user_loc.weather == True)).select(
             db.loc.w24, db.loc.yr,
