@@ -1,9 +1,18 @@
 {{extend 'layout.html'}}
 
-<button class="btn btn-default">
-    <span class="glyphicon glyphicon-cog"></span>
-</button>
+<!-- login & setup -->
+<div class="btn-group">
+    <a class="btn btn-{{if auth.user_id:}}primary{{else:}}default{{pass}}"
+                title="{{=(T('odhlásit uživatele %s') % auth.user.username) if auth.user_id else T('přihlásit se')}}"
+                href="{{=URL('default', 'user', args='logout' if auth.user_id else 'login')}}">
+        <span class="glyphicon glyphicon-user"></span>
+    </a>
+    <a class="btn btn-default" title="{{=T('nastavení')}}">
+        <span class="glyphicon glyphicon-cog"></span>
+    </a>
+</div>
 
+<!-- applications -->
 <button class="btn btn-default" data-toggle="collapse" data-target="#aplikace">
     <span class="glyphicon glyphicon-random"></span> Aplikace
 </button>
@@ -13,6 +22,7 @@
     </div>
 </div>
 
+<!-- weather -->
 <button class="btn btn-default" data-toggle="collapse" data-target="#pocasi">
     <span class="glyphicon glyphicon-asterisk"></span> Počasí <span class="glyphicon glyphicon-cloud"></span>
 </button>
@@ -45,6 +55,7 @@
     </div>
 </div>
 
+<!-- maps -->
 <button class="btn btn-default" data-toggle="collapse" data-target="#mapy">
     <span class="glyphicon glyphicon-map-marker"></span> Mapy
 </button>
@@ -55,6 +66,7 @@
     </div>
 </div>
 
+<!-- transportation -->
 <button class="btn btn-default" data-toggle="collapse" data-target="#doprava">
     <span class="glyphicon glyphicon-plane"></span> Doprava
 </button>
