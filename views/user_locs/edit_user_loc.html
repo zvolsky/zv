@@ -1,0 +1,37 @@
+{{extend 'layout.html'}}
+
+<a class="btn btn-default" title="{{=T('zpět')}}" href="{{=URL('list')}}">
+  <span class="glyphicon glyphicon-circle-arrow-remove"></span>
+</a>
+
+<div class="jumbotron">
+{{if locs:}}<div class="panel panel-default">
+  <div class="panel-heading">{{=T("Vaše místa zájmu:")}}</div>
+  <div class="panel-body">
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="width: 20px">
+          <a class="xbtn xbtn-default" title="{{=T('přidat (další) místo')}}" href="{{=URL('new')}}">
+            <span class="glyphicon glyphicon-plus"></span>
+          </a>
+        </th>
+        <th>{{=T("Místo")}}</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{for loc in locs:}}<tr>
+        <td><a class="xbtn xbtn-default"
+               title="{{=T('odstranit')}}"
+               href="{{=URL('delete', vars={'id': loc.user_loc.id})}}">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a></td>
+        {{=TD(loc.user_loc.name or loc.loc.name)}}
+    </tr>{{pass}}
+    </tbody>
+  </table>
+  </div>
+</div>{{else:}}
+    <div class="well">{{=T("Ještě nemáte zvoleno žádné místo zájmu. Můžete si nějaké přidat.")}}</div>
+{{pass}}
+</div>

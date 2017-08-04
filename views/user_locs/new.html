@@ -1,0 +1,12 @@
+{{extend 'layout.html'}}
+
+<a class="btn btn-default" title="{{=T('zpět')}}" href="{{=URL('list')}}">
+  <span class="glyphicon glyphicon-remove"></span>
+</a>
+
+<div class="jumbotron"><div class="panel panel-default">
+  <div class="panel-heading">{{=T("Přidat místo:")}}</div>
+  <div class="panel-body">
+    {{=form}}
+  </div>
+</div></div>

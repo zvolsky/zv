@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+
+<a class="btn btn-default" title="{{=T('zpět')}}" href="{{=URL('list')}}">
+  <span class="glyphicon glyphicon-remove"></span>
+</a>
+
+<a class="btn btn-primary" title="{{=T('opakovat pokus o geocoding')}}" href="{{=URL('new2_more', vars={'cid': cid, 'name': name})}}">
+  <span class="glyphicon glyphicon-refresh"></span>
+  {{=T("zkusit dohledat místo znova")}}
+</a>

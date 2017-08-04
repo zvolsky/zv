@@ -7,7 +7,9 @@
                 href="{{=URL('default', 'user', args='logout' if auth.user_id else 'login')}}">
         <span class="glyphicon glyphicon-user"></span>
     </a>
-    <a class="btn btn-default" title="{{=T('nastavení')}}">
+    <a class="btn btn-default"
+                title="{{=T('nastavení')}}"
+                href="{{=URL('settings', 'main')}}">
         <span class="glyphicon glyphicon-cog"></span>
     </a>
 </div>

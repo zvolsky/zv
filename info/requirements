@@ -1,3 +1,6 @@
+cjson
+geopy
+
 Download z http://www.countries-list.info/Download-List (uložit--načístUrl):
 -> input/countries_eng.txt -- countries/import_countries/eng
 -> input/countries_eng.txt -- countries/import_countries/cze
