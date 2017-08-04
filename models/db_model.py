@@ -1,5 +1,18 @@
 # -*- coding: utf-8 -*-
 
+class IS_IN_SET_(IS_IN_SET):
+    def __init__(self, s):
+        super(IS_IN_SET_, self).__init__(s, error_message=T("Prosím vyberte některou možnost."))
+
+class IS_NOT_EMPTY_(IS_NOT_EMPTY):
+    def __init__(self):
+        super(IS_NOT_EMPTY_, self).__init__(error_message=T("Prosím zadejte."))
+
+class IS_FLOAT_IN_RANGE_(IS_FLOAT_IN_RANGE):
+    def __init__(self, a, b):
+        super(IS_FLOAT_IN_RANGE_, self).__init__(a, b, error_message=T("Není ve správném rozmezí."))
+
+
 db.define_table('country',
     Field('country', 'string', length=50),
     Field('code2', 'string', length=2),
@@ -19,17 +32,17 @@ countries = db(db.country_lang.lang == auth.lang).select(db.country.id, db.count
                     orderby=db.country_lang.country)
 countries = [(country.country.id, country.country_lang.country) for country in countries]
 db_extra = {
-    'loc_country_id': Field('country_id', db.country, requires=IS_IN_SET(countries),
+    'loc_country_id': Field('country_id', db.country, requires=IS_IN_SET_(countries),
                             label=T("Stát")),
-    'loc_name': Field('name', 'string', length=50, requires=IS_NOT_EMPTY(),
+    'loc_name': Field('name', 'string', length=50, requires=IS_NOT_EMPTY_(),
                             label=T("Místo")),
 }
 db.define_table('loc',
     db_extra['loc_country_id'],
     #Field('state', 'string', length=2),
     db_extra['loc_name'],
-    Field('lat', 'double', requires=IS_FLOAT_IN_RANGE(-90.0, 90.0)),
-    Field('lon', 'double', requires=IS_FLOAT_IN_RANGE(-180.0, 180.0)),
+    Field('lat', 'double', requires=IS_FLOAT_IN_RANGE_(-90.0, 90.0)),
+    Field('lon', 'double', requires=IS_FLOAT_IN_RANGE_(-180.0, 180.0)),
     Field('w24', 'string', length=40),
     Field('yr', 'string', length=50),
     format='%(name)s'

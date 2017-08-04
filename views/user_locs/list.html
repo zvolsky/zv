@@ -1,3 +1,4 @@
+{{response.files.append(URL('static', 'js/site/user_loc.js'))}}
 {{extend 'layout.html'}}
 
 <a class="btn btn-default" title="{{=T('na hlavní stranu')}}" href="{{=URL('default', 'index')}}">
@@ -12,7 +13,7 @@
     <thead>
       <tr>
         <th style="width: 20px">
-          <a title="{{=T('přidat (další) místo')}}" href="{{=URL('new')}}">
+          <a title="{{=T('přidat další místo')}}" href="{{=URL('new')}}">
             <span class="glyphicon glyphicon-plus"></span>
           </a>
         </th>
@@ -21,9 +22,9 @@
     </thead>
     <tbody>
     {{for loc in locs:}}<tr>
-        <td><a class="xbtn xbtn-default"
+        <td><a class="deleteLoc"
                title="{{=T('odstranit')}}"
-               href="{{=URL('delete', vars={'id': loc.user_loc.id})}}">
+               data-href="{{=URL('delete', vars={'id': loc.user_loc.id})}}">
             <span class="glyphicon glyphicon-remove"></span>
         </a></td>
         {{=TD(loc.user_loc.name or loc.loc.name)}}
@@ -32,6 +33,33 @@
   </table>
   </div>
 </div>{{else:}}
-    <div class="well">{{=T("Ještě nemáte zvoleno žádné místo zájmu. Můžete si nějaké přidat.")}}</div>
+  <div class="well">
+    {{=T("Ještě nemáte zvoleno žádné místo zájmu.")}}<br />
+    {{=T("Můžete si nějaké přidat.")}}
+    <p class="center"><a class="btn btn-primary" title="{{=T('přidat místo zájmu')}}" href="{{=URL('new')}}">
+      <span class="glyphicon glyphicon-plus"></span>
+    </a></p>
+  </div>
 {{pass}}
+</div>
+
+<!-- Modal -->
+<div id="sureDelete" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{=T("Odstranit místo")}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{=T("Opravdu odstranit místo zájmu?")}}</p>
+      </div>
+      <div class="modal-footer">
+        <button id="yesDelete" type="button" class="btn btn-primary" data-dismiss="modal">{{=T("Ano, odstranit")}}</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{=T("Ne")}}</button>
+      </div>
+    </div>
+
+  </div>
 </div>

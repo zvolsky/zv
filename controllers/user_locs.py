@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from geopy.geocoders import Nominatim
+import geopy
 
 
 GC_FAILED_MSG = T("Vyhledávání polohy místa (geocoding) selhalo. Zkuste to prosím za krátkou dobu znova.")
@@ -30,9 +30,9 @@ def new():
             lon = loc.lon
         else:
             code2 = get_code2(form.vars.country_id)
-            gc = Nominatim(format_string="%s, " + code2)
+            gc = geopy.geocoders.Nominatim(format_string="%s, " + code2)
             try:
-                loc = gc.geocode(name)
+                loc = gc.geocode(form.vars.name)
             except geopy.exc.GeopyError:  # geopy extension base class
                 session.flash = GC_FAILED_MSG
                 redirect(URL())
@@ -48,17 +48,17 @@ def new():
 
 @auth.requires_login()
 def new2():
-    assert (request.vars.id >= 0 and request.vars.cid >= 0 and request.vars.name and
-            -90.0 <= request.vars.lat <= 90.0 and -180.0 <= request.vars.lon <= 180.0)
+    assert (int(request.vars.id) >= 0 and int(request.vars.cid) > 0 and request.vars.name and
+            -90.0 <= float(request.vars.lat) <= 90.0 and -180.0 <= float(request.vars.lon) <= 180.0)
     return {'id': request.vars.id, 'lat': request.vars.lat, 'lon': request.vars.lon,
             'cid': request.vars.cid, 'name': request.vars.name}
 
 
 @auth.requires_login()
 def new2_more():
-    assert request.vars.cid >= 0 and request.vars.name
+    assert int(request.vars.cid) > 0 and request.vars.name
     code2 = get_code2(request.vars.cid)
-    gc = Nominatim(format_string="%s, " + code2)
+    gc = geopy.geocoders.Nominatim(format_string="%s, " + code2)
     try:
         locs = gc.geocode(name, exactly_one=False)
     except geopy.exc.GeopyError:  # geopy extension base class
@@ -69,14 +69,14 @@ def new2_more():
 
 @auth.requires_login()
 def new2_retry():
-    assert request.vars.cid >= 0 and request.vars.name
+    assert int(request.vars.cid) > 0 and request.vars.name
     return dict(cid=request.vars.cid, name=request.vars.name)
 
 
 @auth.requires_login()
 def new2_accepted():
-    assert (request.vars.id >= 0 and request.vars.cid >= 0 and request.vars.name and
-            -90.0 <= request.vars.lat <= 90.0 and -180.0 <= request.vars.lon <= 180.0)
+    assert (int(request.vars.id) >= 0 and int(request.vars.cid) > 0 and request.vars.name and
+            -90.0 <= float(request.vars.lat) <= 90.0 and -180.0 <= float(request.vars.lon) <= 180.0)
     if request.vars.id:
         loc_id = request.vars.id
     else:
@@ -100,7 +100,7 @@ def edit_user_loc():
 @auth.requires_login()
 def delete():
     assert request.vars.id > 0
-    user_loc_id = request.args(0)
+    user_loc_id = request.vars.id
     if my_user_loc(user_loc_id):
         del db.user_loc[user_loc_id]
     redirect(URL('list'))
