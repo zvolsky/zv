@@ -5,94 +5,82 @@
     <a class="btn btn-{{if auth.user_id:}}primary{{else:}}default{{pass}}"
                 title="{{=(T('odhlásit uživatele %s') % auth.user.username) if auth.user_id else T('přihlásit se')}}"
                 href="{{=URL('default', 'user', args='logout' if auth.user_id else 'login')}}">
-        <span class="glyphicon glyphicon-user"></span>
+        <i class="fa fa-user-o"></i> {{=auth.user and auth.user.username or ''}}
     </a>
+    <!--
     <a class="btn btn-default"
                 title="{{=T('nastavení')}}"
                 href="{{=URL('settings', 'main')}}">
-        <span class="glyphicon glyphicon-cog"></span>
+        <i class="fa fa-sliders"></i>
     </a>
+    -->
 </div>
 
 <!-- applications -->
-<button class="btn btn-default" data-toggle="collapse" data-target="#aplikace">
-    <span class="glyphicon glyphicon-random"></span> Aplikace
-</button>
-<div id="aplikace" class="collapse row">
-    <div class="col-sm-12 btn-group">
-        <a href="/krepo" class="btn btn-primary">K-Report mobilní čtečka</a>
-    </div>
-</div>
+<a href="/krepo" class="btn btn-default"><i class="fa fa-mobile fa-lg"></i> K-Report mobile</a>
 
 <!-- weather -->
 <button class="btn btn-default" data-toggle="collapse" data-target="#pocasi">
-    <span class="glyphicon glyphicon-asterisk"></span> Počasí <span class="glyphicon glyphicon-cloud"></span>
+    <i class="fa fa-sun-o"></i> Počasí
+    <span id="pocasi" class="collapse">
+        <span class="btn-group">
+            <a href="http://mapy.in-pocasi.cz/" class="btn btn-primary">ČR 1 <i class="fa fa-rss"></i></a>
+            <a href="http://radar.bourky.cz/" class="btn btn-primary">ČR 2 <i class="fa fa-rss"></i></a>
+            <a href="http://www.radareu.cz/" class="btn btn-primary">EU <i class="fa fa-rss"></i></a>
+        </span>
+        <span class="btn-group">
+            <a href="http://www.meteoalarm.eu/" class="btn btn-warning">EU <i class="fa fa-bolt"></i> !!</a>
+            <a href="http://portal.chmi.cz/files/portal/docs/meteo/om/zpravy/" class="btn btn-warning">ČR <i class="fa fa-bolt"></i> !!</a>
+        </span>
+        <span class="btn-group">
+            {{if loc and loc.yr:}}
+                <a href="https://www.yr.no/sted/{{=loc.yr}}" class="btn btn-info">yr.no</a>
+                <a href="https://www.yr.no/sted/{{=loc.yr}}/langtidsvarsel.html" class="btn btn-default">9d</a>
+            {{else:}}
+                <a href="https://www.yr.no" class="btn btn-info">yr.no</a>
+            {{pass}}
+            <a href="http://portal.chmi.cz/files/portal/docs/meteo/ov/aladin/results/ala.html#prec?" class="btn btn-info">Aladin <i class="fa fa-umbrella"></i></a>
+        </span>
+    </span>
 </button>
-<div id="pocasi" class="collapse row">
-    <div class="col-sm-4 btn-group">
-        <a href="http://mapy.in-pocasi.cz/" class="btn btn-primary">Radar ČR 1</a>
-        <a href="http://radar.bourky.cz/" class="btn btn-primary">Radar ČR 2</a>
-        <a href="http://www.radareu.cz/" class="btn btn-primary">Evropa</a>
-    </div>
-
-    <div class="col-sm-4 btn-group">
-        {{if loc and loc.w24:}}
-            <a href="http://www.weather24.com/details/r/{{=loc.w24}}.html?d=1" class="btn btn-info">w24.com</a>
-            <a href="http://www.weather24.com/16days/r/{{=loc.w24}}.html" class="btn btn-default">16d</a>
-        {{else:}}
-            <a href="http://www.weather24.com" class="btn btn-info">w24.com</a>
-        {{pass}}
-        {{if loc and loc.yr:}}
-            <a href="https://www.yr.no/sted/{{=loc.yr}}" class="btn btn-info">yr.no</a>
-            <a href="https://www.yr.no/sted/{{=loc.yr}}/langtidsvarsel.html" class="btn btn-default">9d</a>
-        {{else:}}
-            <a href="https://www.yr.no" class="btn btn-info">yr.no</a>
-        {{pass}}
-        <a href="http://portal.chmi.cz/files/portal/docs/meteo/ov/aladin/results/ala.html#prec?" class="btn btn-info">Aladin (deště)</a>
-    </div>
-
-    <div class="col-sm-4 btn-group">
-        <a href="http://www.meteoalarm.eu/" class="btn btn-warning">Výstrahy EU</a>
-        <a href="http://portal.chmi.cz/files/portal/docs/meteo/om/zpravy/" class="btn btn-warning">ČR</a>
-    </div>
-</div>
 
 <!-- maps -->
 <button class="btn btn-default" data-toggle="collapse" data-target="#mapy">
-    <span class="glyphicon glyphicon-map-marker"></span> Mapy
+    <i class="fa fa-map-marker"></i> Mapy
+    <span id="mapy" class="collapse">
+        <span class="btn-group">
+            <a href="http://www.openstreetmap.org/#map=9/50.0942/14.2740" class="btn btn-primary">Osm</a>
+            <a href="https://mapy.cz/turisticka?x=14.4206948&y=50.0326060&z=10&l=0" class="btn btn-primary">Seznam</a>
+        </span>
+    </span>
 </button>
-<div id="mapy" class="collapse row">
-    <div class="col-sm-12 btn-group">
-        <a href="http://www.openstreetmap.org/#map=9/50.0942/14.2740" class="btn btn-primary">Osm</a>
-        <a href="https://mapy.cz/turisticka?x=14.4206948&y=50.0326060&z=10&l=0" class="btn btn-primary">Seznam</a>
-    </div>
-</div>
 
 <!-- transportation -->
 <button class="btn btn-default" data-toggle="collapse" data-target="#doprava">
-    <span class="glyphicon glyphicon-plane"></span> Doprava
+    <i class="fa fa-subway"></i> Doprava
+    <span id="doprava" class="collapse">
+        <span class="btn-group">
+            <a href="http://www.idos.cz/" class="btn btn-primary">ČR <i class="fa fa-sort-numeric-asc"></i></a>
+            <a href="http://www.jizdni-rady.nanadrazi.cz/index.php?page=odkazy-na-vlakove-jizdni-rady" class="btn btn-primary">EU <i class="fa fa-sort-numeric-asc"></i></a>
+        </span>
+
+        <span class="btn-group">
+            <a href="http://jizdenka.idos.cz/NT.aspx" class="btn btn-info"><i class="fa fa-money fa-lg"></i></a>
+            <a href="http://www.cd.cz/mezinarodni-cestovani/jizdenka/sleva.php" class="btn btn-info"><i class="fa fa-eur"></i></a>
+            <a href="http://vlakem.net/" class="btn btn-info">EU jak?</a>
+            <a href="http://www.europetrainsguide.com/" class="btn btn-info">EU Guide</a>
+        </span>
+
+        <span class="btn-group">
+            <a href="http://www.cd.cz/" class="btn btn-warning">ČD</a>
+            <a href="http://www.cd.cz/eshop" class="btn btn-warning"><i class="fa fa-shopping-basket"></i></a>
+            <a href="https://www.cd.cz/jizdni-rad/omezeni-provozu/" class="btn btn-warning"><i class="fa fa-warning"></i></a>
+        </span>
+
+        <span class="btn-group">
+            <a href="http://www.regiojet.cz/" class="btn btn-default">RJ</a>
+            <a href="https://www.regiojet.cz/nase-trasy/mapa/" class="btn btn-default"><i class="fa fa-map-o"></i></a>
+            <a href="https://jizdenky.regiojet.cz/OnTheRoad?0" class="btn btn-default"><i class="fa fa-warning"></i></a>
+        </div>
+    </span>
 </button>
-<div id="doprava" class="collapse row">
-    <div class="col-sm-4 btn-group">
-        <a href="http://www.idos.cz/" class="btn btn-primary">Jízdní řády</a>
-        <a href="http://www.jizdni-rady.nanadrazi.cz/index.php?page=odkazy-na-vlakove-jizdni-rady" class="btn btn-primary">JŘ2</a>
-    </div>
-
-    <div class="col-sm-4 btn-group">
-        <a href="http://jizdenka.idos.cz/NT.aspx" class="btn btn-info">Cena</a>
-        <a href="http://www.cd.cz/mezinarodni-cestovani/jizdenka/sleva.php" class="btn btn-info">EU slevy</a>
-        <a href="http://vlakem.net/" class="btn btn-info">EU jak?</a>
-        <a href="http://www.europetrainsguide.com/" class="btn btn-info">EU Guide</a>
-    </div>
-
-    <div class="col-sm-4 btn-group">
-        <a href="http://www.cd.cz/" class="btn btn-warning">ČD</a>
-        <a href="http://www.cd.cz/mapa/" class="btn btn-warning">!</a>
-    </div>
-
-    <div class="col-sm-4 btn-group">
-        <a href="http://www.regiojet.cz/" class="btn btn-default">Regiojet</a>
-        <a href="https://www.regiojet.cz/nase-trasy/mapa/" class="btn btn-default">iM</a>
-        <a href="https://jizdenky.regiojet.cz/OnTheRoad?0" class="btn btn-default">!</a>
-    </div>
-</div>
