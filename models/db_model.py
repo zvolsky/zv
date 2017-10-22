@@ -1,17 +1,39 @@
 # -*- coding: utf-8 -*-
 
+import datetime
+
+
+T.force('cs')   # vynucujeme datum bez ohledu na nastavení prohlížeče
+
 class IS_IN_SET_(IS_IN_SET):
     def __init__(self, s):
-        super(IS_IN_SET_, self).__init__(s, error_message=T("Prosím vyberte některou možnost."))
+        super(IS_IN_SET_, self).__init__(s, error_message=T("Prosím vyberte některou možnost: %s.") % s)
+
+class IS_INT_IN_RANGE_(IS_INT_IN_RANGE):
+    def __init__(self, a, b):
+        super(IS_INT_IN_RANGE_, self).__init__(a, b, error_message=T("Prosím zadejte číslo od %s do %s.") % (a, b))
+
+class IS_DATE_(IS_DATE):
+    def __init__(self, format=None):
+        super(IS_DATE_, self).__init__(format, error_message=T("Prosím zadejte datum, např. %s.") % datetime.date.today().strftime(str(format)))
 
 class IS_NOT_EMPTY_(IS_NOT_EMPTY):
     def __init__(self):
-        super(IS_NOT_EMPTY_, self).__init__(error_message=T("Prosím zadejte."))
+        super(IS_NOT_EMPTY_, self).__init__(error_message=T("Prosím zadejte tento údaj."))
 
 class IS_FLOAT_IN_RANGE_(IS_FLOAT_IN_RANGE):
     def __init__(self, a, b):
-        super(IS_FLOAT_IN_RANGE_, self).__init__(a, b, error_message=T("Není ve správném rozmezí."))
+        super(IS_FLOAT_IN_RANGE_, self).__init__(a, b, error_message=T("Prosím zadejte číslo od %s do %s.") % (a, b))
 
+
+db.define_table('kmb',
+    Field('auth_user_id', db.auth_user, default=auth.user_id, ondelete='CASCADE', readable=False, writable=False),
+    Field('km', 'integer', requires=IS_INT_IN_RANGE_(1, 2001)),
+    Field('cena', 'integer', requires=IS_INT_IN_RANGE_(1, 3000)),
+    Field('platnost', 'date', requires=IS_DATE_(format=T('%Y-%m-%d'))),
+    Field('predani', 'string', length=192, requires=IS_NOT_EMPTY_()),
+    Field('kontakt', 'string', length=192, requires=IS_NOT_EMPTY_()),
+    )
 
 db.define_table('country',
     Field('country', 'string', length=50),

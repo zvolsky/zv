@@ -7,4 +7,9 @@ def main():
             db.loc.w24, db.loc.yr,
             join=db.loc.on(db.loc.id == db.user_loc.loc_id)
         ).first()
-    return dict(loc=loc)
+
+    # KMB
+    kmb = db((db.kmb.km > 0) & (db.kmb.platnost >= datetime.date.today())).select(db.kmb.ALL, orderby=db.kmb.km)
+    response.files.append(URL('static', 'css/no-more-tables.css'))
+
+    return dict(loc=loc, kmb=kmb)

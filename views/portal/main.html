@@ -1,5 +1,6 @@
 {{extend 'layout.html'}}
 
+<div>
 <!-- login & setup -->
 <div class="btn-group">
     <a class="btn btn-{{if auth.user_id:}}primary{{else:}}default{{pass}}"
@@ -84,3 +85,46 @@
         </div>
     </span>
 </button>
+</div>
+
+<div class="well">
+    <h3><b>Burza KMB</b> - <small>cestujte vlakem nad 100 km za 1.10 Kč (se slevou až 23%)</small> - <button data-toggle="collapse" data-target="#info_kmb">více ..</button></h3>
+    <p id="info_kmb" class="well collapse"><b>KILOMETRICKÁ BANKA - Získáte předplacené kilometry na vlaky (Českých Drah).</b><br>
+        Bez uvedení jména (doklad je přenosný) a <b>bez chození k pokladně můžete jet levněji sám/sama nebo ve dvou.</b><br>
+        <b>Odečte se nejméně 100 km za každého cestujícího</b> (proto se KMB nepoužívá pro cesty pod 80 km).<br>
+        Celá stojí 2200 Kč / 2000 km a platí 6 měsíců. Zde můžete získat KMB částečně projeté.<br>
+        <a href="https://www.cd.cz/typy-jizdenek/vnitrostatni-jizdenky/-26113/" class="btn btn-info">podrobnosti na cd.cz</a></p>
+    {{if kmb:}}
+        <div id="no-more-tables"> <!-- https://bootsnipp.com/snippets/featured/no-more-tables-respsonsive-table -->
+        <table class="col-md-12 table-bordered table-striped table-condensed"> <!-- cf -->
+            <thead> <!-- class="cf" -->
+                <tr>
+                    <th></th>
+                    <th>Kč</th>
+                    <th>Kč/km</th>
+                    <th>km</th>
+                    <th>do</th>
+                    <th>předání</th>
+                    <th>kontakt</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{for kmb1 in kmb:}}<tr>
+                    <td>{{if kmb1.auth_user_id == auth.user_id:}}<a href="{{=URL('kmb', 'edit', args=kmb1.id)}}" class="btn btn-small btn-success">edit</a>{{pass}}</td>
+                    <td data-title="Kč">{{=kmb1.cena}}</td>
+                    <td data-title="Kč/km">{{="%s" % round(float(kmb1.cena) / kmb1.km, 3)}}</td>
+                    <td data-title="km"><b>{{=kmb1.km}}</b></td>
+                    <td data-title="platí do"><b>{{=db.kmb.platnost.formatter(kmb1.platnost)}}</b></td>
+                    <!--<td data-title="platí do"><b>{{=kmb1.platnost.strftime(str(T('%Y-%m-%d')))}}</b></td>-->
+                    <td data-title="předání"><small>{{=kmb1.predani}}</small></td>
+                    <td data-title="kontakt"><small>{{=kmb1.kontakt}}</small></td>
+                </tr>{{pass}}
+            </tbody>
+        </table>
+        </div>
+    {{else:}}
+    <p>Nyní KMB nikdo nenabízí. Můžete ji leda zakoupit v pokladně ČD: 6 měsíců platnost, 2000 km za 2200,- Kč.</p>
+    {{pass}}
+    <p>Podpořte burzu <small>(a Vám to pomůže, aby Vám nevypršela platnost KMB)</small>:
+        <a href="{{=URL('kmb', 'add')}}" class="btn btn-success">Nabízím KMB k prodeji</a></p>
+</div>

@@ -1,0 +1,21 @@
+{{extend 'layout.html'}}
+
+<h2>Nabízím KMB</h2>
+
+<p class="info well">
+    Zveřejnění a zprostředkování nabídky KMB je zdarma.<br>
+    Provozovatel webu upozorňuje, že za dohodu mezi nabízejícím a kupujícím nenese odpovědnost.<br><br>
+    Nabídka se bude zobrazovat až do ukončení platnosti KMB,<br>
+    ale přihlášenému uživateli se zobrazuje tlačítko a může ji kdykoli zrušit.<br>
+    Prosím, aktualizujte co nejdříve zůstatek km a požadovanou cenu. Díky...
+</p>
+
+<div class="well">
+{{=form}}
+
+{{if kmb_id:}}
+    <a href="{{=URL('kmb', 'delete', args=kmb_id)}}" class="btn btn-danger">Zrušit tuto nabídku</a>
+{{else:}}
+    <a href="{{=URL('portal', 'main')}}" class="btn btn-info">Zpět (bez vložení nabídky)</a>
+{{pass}}
+</div>
