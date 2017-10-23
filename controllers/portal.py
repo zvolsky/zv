@@ -12,4 +12,4 @@ def main():
     kmb = db((db.kmb.km > 0) & (db.kmb.platnost >= datetime.date.today())).select(db.kmb.ALL, orderby=db.kmb.km)
     response.files.append(URL('static', 'css/no-more-tables.css'))
 
-    return dict(loc=loc, kmb=kmb)
+    return dict(loc=loc, kmb=kmb, KMB_CENA=2200)  # KMB_CENA duplicitně v kmb.py

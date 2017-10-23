@@ -88,11 +88,11 @@
 </div>
 
 <div class="well">
-    <h3><b>Burza KMB</b> - <small>cestujte vlakem nad 100 km za 1.10 Kč (se slevou až 23%)</small> - <button data-toggle="collapse" data-target="#info_kmb">více ..</button></h3>
+    <h3><b>Burza KMB</b> - <small>cestujte vlakem nad 100 km za {{='{:1,.2f}'.format(KMB_CENA / 2000.0)}} Kč (se slevou až 23%)</small> - <button data-toggle="collapse" data-target="#info_kmb">více ..</button></h3>
     <p id="info_kmb" class="well collapse"><b>KILOMETRICKÁ BANKA - Získáte předplacené kilometry na vlaky (Českých Drah).</b><br>
         Bez uvedení jména (doklad je přenosný) a <b>bez chození k pokladně můžete jet levněji sám/sama nebo ve dvou.</b><br>
         <b>Odečte se nejméně 100 km za každého cestujícího</b> (proto se KMB nepoužívá pro cesty pod 80 km).<br>
-        Celá stojí 2200 Kč / 2000 km a platí 6 měsíců. Zde můžete získat KMB částečně projeté.<br>
+        Celá stojí {{=KMB_CENA}} Kč / 2000 km a platí 6 měsíců. Zde můžete získat KMB částečně projeté.<br>
         <a href="https://www.cd.cz/typy-jizdenek/vnitrostatni-jizdenky/-26113/" class="btn btn-info">podrobnosti na cd.cz</a></p>
     {{if kmb:}}
         <div id="no-more-tables"> <!-- https://bootsnipp.com/snippets/featured/no-more-tables-respsonsive-table -->

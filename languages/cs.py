@@ -300,6 +300,7 @@
 'Name': 'Jméno',
 'nastavení': 'nastavení',
 'Ne': 'Ne',
+'Nejprve zadej zůstatek km.': 'Nejprve zadej zůstatek km.',
 'Není ve správném rozmezí.': 'Není ve správném rozmezí.',
 'new application "%s" created': 'nová aplikace "%s" vytvořena',
 'New Application Wizard': 'Nový průvodce aplikací',

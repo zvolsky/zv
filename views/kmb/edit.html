@@ -11,6 +11,7 @@
 </p>
 
 <div class="well">
+<button id="normalprice" class="btn btn-success">Připrav cenu za km jako při nákupu u ČD</button>
 {{=form}}
 
 {{if kmb_id:}}
@@ -19,3 +20,14 @@
     <a href="{{=URL('portal', 'main')}}" class="btn btn-info">Zpět (bez vložení nabídky)</a>
 {{pass}}
 </div>
+
+<script>
+    $('#normalprice').click(function() {
+        var km = $('#kmb_km').val();
+        if (km < 1 || km > 2000) {
+            bootbox.alert("{{=T('Nejprve zadej zůstatek km.')}}")
+        } else {
+            $('#kmb_cena').val(({{= KMB_CENA / 2000.0}} * km).toFixed(0));
+        }
+    })
+</script>

@@ -1,4 +1,5 @@
 SAVE = "Uložit"
+KMB_CENA = 2200  # KMB_CENA duplicitně v portal.py ; také v portal/kmb.py aktualizuj výši slevy [%]
 
 
 def add():
@@ -6,7 +7,8 @@ def add():
     if form.process().accepted:
         redirect(URL('portal', 'main'))
     response.view = 'kmb/edit.html'
-    return dict(form=form, kmb_id=None)
+    response.files.append(URL('static', 'js/bootbox.min.js'))
+    return dict(form=form, kmb_id=None, KMB_CENA=KMB_CENA)
 
 
 def edit():
@@ -24,7 +26,8 @@ def edit():
     form = SQLFORM(db.kmb, kmb_id, submit_text=SAVE, showid=False)
     if form.process().accepted:
         redirect(next)
-    return dict(form=form, kmb_id=kmb_id)
+    response.files.append(URL('static', 'js/bootbox.min.js'))
+    return dict(form=form, kmb_id=kmb_id, KMB_CENA=KMB_CENA)
 
 
 def delete():
