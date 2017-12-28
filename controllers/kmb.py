@@ -2,6 +2,7 @@ SAVE = "Uložit"
 KMB_CENA = 2200  # KMB_CENA duplicitně v portal.py ; také v portal/kmb.py aktualizuj výši slevy [%]
 
 
+@auth.requires_login()
 def add():
     form = SQLFORM(db.kmb, submit_text=SAVE)
     if form.process().accepted:
@@ -11,6 +12,7 @@ def add():
     return dict(form=form, kmb_id=None, KMB_CENA=KMB_CENA)
 
 
+@auth.requires_login()
 def edit():
     next = URL('portal', 'main')
     try:
@@ -30,6 +32,7 @@ def edit():
     return dict(form=form, kmb_id=kmb_id, KMB_CENA=KMB_CENA)
 
 
+@auth.requires_login()
 def delete():
     next = URL('portal', 'main')
     try:
