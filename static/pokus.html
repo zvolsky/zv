@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Title</title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+    <p><button class="btn btn-default" onclick="persistentNotification()">Persistent notification</button></p>
+    <script>
+// https://whatwebcando.today/local-notifications.html
+navigator.serviceWorker.register('/sw.js');   // ??????????????????
+// https://developers.google.com/web/fundamentals/codelabs/offline/
+
+var $status = document.getElementById('status');
+
+if ('Notification' in window) {
+  $status.innerText = Notification.permission;
+}
+
+function requestPermission() {
+  if (!('Notification' in window)) {
+    alert('Notification API not supported!');
+    return;
+  }
+  
+  Notification.requestPermission(function (result) {
+    $status.innerText = result;
+  });
+}
+
+function nonPersistentNotification() {
+  if (!('Notification' in window)) {
+    alert('Notification API not supported!');
+    return;
+  }
+  
+  try {
+    var notification = new Notification("Hi there - non-persistent!");
+  } catch (err) {
+    alert('Notification API error: ' + err);
+  }
+}
+
+function persistentNotification() {
+  if (!('Notification' in window) || !('ServiceWorkerRegistration' in window)) {
+    alert('Persistent Notification API not supported!');
+    return;
+  }
+  
+  try {
+    navigator.serviceWorker.getRegistration()
+      .then(reg => reg.showNotification("Hi there - persistent!"))
+      .catch(err => alert('Service Worker registration error: ' + err));
+  } catch (err) {
+    alert('Notification API error: ' + err);
+  }
+}
+    </script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-# coding: utf8
+# -*- coding: utf-8 -*-
 {
 '!langcode!': 'sk',
 '!langname!': 'Slovenský',
@@ -54,6 +54,7 @@
 'Edit current record': 'Upraviť aktuálny záznam',
 'Edit Profile': 'Upraviť profil',
 'Email and SMS': 'Email and SMS',
+'Enter an integer between %(min)g and %(max)g': 'Enter an integer between %(min)g and %(max)g',
 'Errors': 'Errors',
 'export as csv file': 'exportovať do csv súboru',
 'FAQ': 'FAQ',

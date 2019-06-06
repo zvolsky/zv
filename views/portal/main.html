@@ -87,14 +87,29 @@
 </button>
 </div>
 
+<div class="well" style="margin-top: 20px;">
+    <h3>Chrome extension: <b>ČD Body - zitranavylet.cz</b></h3>
+    <p>Zjistí expiraci bodů ve věrnostním programu Českých drah. <a href="https://www.youtube.com/watch?v=wn-zkSD3EnM&t=3s">Prohlédněte si, jak na to.</a>
+            - <button data-toggle="collapse" data-target="#info_cdbody">více ..</button><br>
+        Dále poskytne na idos.cz, cd.cz, regiojet.cz <b>odkazy na mapy a počasí podle cíle cesty a na řazení vlaků</b>.
+    </p>
+    <div id="info_cdbody" class="collapse">
+    <p>Rozšíření do Chromu najdete v <a href="https://chrome.google.com/webstore">Google Web Store</a> (případně v menu Chromu: Další nástroje, Rozšíření, menu (vlevo nahoře), Otevřít Internetový obchod Chrome). Tam zadejte (vlevo nahoře): "ČD".</p>
+    <p>Po instalaci se přihlašte na cd.cz, proklikem jména profilu a přes "Spravovat mé služby", "Můj věrnostní program: Detail" promítněte 1.stránku výpisu a pak stiskněte (vpravo nahoře) ikonu tohoto rozšíření.<br>
+        Získáte data expirace Vašich bodů.</p>
+    </div>
+</div>
+
 <div class="well">
-    <h3><b>Burza KMB</b> - <small>cestujte vlakem nad 100 km za {{='{:1,.2f}'.format(KMB_CENA / 2000.0)}} Kč (se slevou až 23%)</small> - <button data-toggle="collapse" data-target="#info_kmb">více ..</button></h3>
+    <h3><b>KMB</b> (Kilomtrická banka) - <small>cestujte vlakem nad 100 km za {{='{:1,.2f}'.format(KMB_CENA / 2000.0)}} Kč (se slevou až 23%)</small>
+        - <button data-toggle="collapse" data-target="#info_kmb">více ..</button></h3>
     <p id="info_kmb" class="well collapse"><b>KILOMETRICKÁ BANKA - Získáte předplacené kilometry na vlaky (Českých Drah).</b><br>
         Bez uvedení jména (doklad je přenosný) a <b>bez chození k pokladně můžete jet levněji sám/sama nebo ve dvou.</b><br>
         <b>Odečte se nejméně 100 km za každého cestujícího</b> (proto se KMB nepoužívá pro cesty pod 80 km).<br>
         Celá stojí {{=KMB_CENA}} Kč / 2000 km a platí 6 měsíců. Zde můžete získat KMB částečně projeté.<br>
         <a href="https://www.cd.cz/typy-jizdenek/vnitrostatni-jizdenky/-26113/" class="btn btn-info">podrobnosti na cd.cz</a></p>
     {{if kmb:}}
+        Je to přenosný jízdní doklad a můžete jej nyní získat i od dosavadního majitele:
         <div id="no-more-tables"> <!-- https://bootsnipp.com/snippets/featured/no-more-tables-respsonsive-table -->
         <table class="col-md-12 table-bordered table-striped table-condensed"> <!-- cf -->
             <thead> <!-- class="cf" -->
@@ -125,6 +140,6 @@
     {{else:}}
     <p>Nyní KMB nikdo nenabízí. Můžete ji leda zakoupit v pokladně ČD: 6 měsíců platnost, 2000 km za {{=KMB_CENA}},- Kč.</p>
     {{pass}}
-    <p>Podpořte burzu <small>(a Vám to pomůže, aby Vám nevypršela platnost KMB)</small>:
+    <p>Můžete nabídnout ostatním vlastní KMB:
         <a href="{{=URL('kmb', 'add')}}" class="btn btn-success">Nabízím KMB k prodeji</a></p>
 </div>

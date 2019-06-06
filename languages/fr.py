@@ -1,4 +1,4 @@
-# coding: utf8
+# -*- coding: utf-8 -*-
 {
 '!langcode!': 'fr',
 '!langname!': 'Français',
@@ -8,6 +8,7 @@
 '%s selected': '%s sélectionné',
 '%Y-%m-%d': '%Y-%m-%d',
 '%Y-%m-%d %H:%M:%S': '%Y-%m-%d %H:%M:%S',
+'@markmin\x01An error occured, please [[reload %s]] the page': 'An error occured, please [[reload %s]] the page',
 'About': 'À propos',
 'Access Control': "Contrôle d'accès",
 'Administrative Interface': "Interface d'administration",
@@ -62,6 +63,7 @@
 'edit profile': 'modifier le profil',
 'Edit This App': 'Modifier cette application',
 'Email and SMS': 'Email et SMS',
+'Enter an integer between %(min)g and %(max)g': 'Enter an integer between %(min)g and %(max)g',
 'enter an integer between %(min)g and %(max)g': 'entrez un entier entre %(min)g et %(max)g',
 'Errors': 'Erreurs',
 'export as csv file': 'exporter sous forme de fichier csv',
@@ -93,6 +95,7 @@
 'Layouts': 'Mises en page',
 'Live chat': 'Chat en direct',
 'Live Chat': 'Chat en direct',
+'Log In': 'Log In',
 'login': 'connectez-vous',
 'Login': 'Connectez-vous',
 'logout': 'déconnectez-vous',
@@ -147,6 +150,7 @@
 'Role': 'Rôle',
 'Rows in Table': 'Lignes du tableau',
 'Rows selected': 'Lignes sélectionnées',
+'s přispěním': 's přispěním',
 'Semantic': 'Sémantique',
 'Services': 'Services',
 'Size of cache:': 'Taille du cache:',
@@ -184,6 +188,7 @@
 'Welcome to web2py': 'Bienvenue à web2py',
 'Welcome to web2py!': 'Bienvenue à web2py!',
 'Which called the function %s located in the file %s': 'Qui a appelé la fonction %s se trouvant dans le fichier %s',
+'Working...': 'Working...',
 'You are successfully running web2py': 'Vous exécutez avec succès web2py',
 'You can modify this application and adapt it to your needs': "Vous pouvez modifier cette application et l'adapter à vos besoins",
 'You visited the url %s': "Vous avez visité l'URL %s",

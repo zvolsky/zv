@@ -1,4 +1,4 @@
-# coding: utf8
+# -*- coding: utf-8 -*-
 {
 '!langcode!': 'nl',
 '!langname!': 'Nederlands',
@@ -19,6 +19,7 @@
 '=': '=',
 '>': '>',
 '>=': '>=',
+'@markmin\x01An error occured, please [[reload %s]] the page': 'An error occured, please [[reload %s]] the page',
 'A new version of web2py is available': 'Een nieuwe versie van web2py is beschikbaar',
 'A new version of web2py is available: %s': 'Een nieuwe versie van web2py is beschikbaar: %s',
 'About': 'Over',
@@ -135,6 +136,7 @@
 'Editing file "%s"': 'Bewerk bestand "%s"',
 'Email and SMS': 'E-mail en SMS',
 'enter a number between %(min)g and %(max)g': 'geef een getal tussen %(min)g en %(max)g',
+'Enter an integer between %(min)g and %(max)g': 'Enter an integer between %(min)g and %(max)g',
 'enter an integer between %(min)g and %(max)g': 'geef een integer tussen %(min)g en %(max)g',
 'Error logs for "%(app)s"': 'Error logs voor "%(app)s"',
 'errors': 'errors',
@@ -201,6 +203,7 @@
 'License for': 'Licentie voor',
 'Live Chat': 'Live Chat',
 'loading...': 'laden...',
+'Log In': 'Log In',
 'Logged in': 'Ingelogd',
 'Logged out': 'Uitgelogd',
 'Login': 'Login',
@@ -279,6 +282,7 @@
 'Role': 'Rol',
 'Rows in Table': 'Rijen in tabel',
 'Rows selected': 'Rijen geselecteerd',
+'s přispěním': 's přispěním',
 'save': 'bewaar',
 'Save profile': 'Bewaar profiel',
 'Saved file hash:': 'Opgeslagen file hash:',
@@ -369,6 +373,7 @@
 'Welcome to web2py': 'Welkom bij web2py',
 'Welcome to web2py!': 'Welkom bij web2py!',
 'Which called the function %s located in the file %s': 'Die functie %s aanriep en zich bevindt in het bestand %s',
+'Working...': 'Working...',
 'YES': 'JA',
 'You are successfully running web2py': 'Je draait web2py succesvol',
 'You can modify this application and adapt it to your needs': 'Je kan deze applicatie aanpassen naar je eigen behoeften',
